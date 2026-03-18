@@ -4,6 +4,7 @@ import { defineConfig } from "@exdst-sitecore-content-sdk/astro/config";
  * https://doc.sitecore.com/xmc/en/developers/content-sdk/the-sitecore-configuration-file.html
  */
 export default defineConfig({
+  defaultSite: import.meta.env?.SITECORE_DEFAULT_SITE_NAME || process.env?.SITECORE_DEFAULT_SITE_NAME || '',
   api: {
     edge: {
       contextId: import.meta.env?.SITECORE_EDGE_CONTEXT_ID || "",

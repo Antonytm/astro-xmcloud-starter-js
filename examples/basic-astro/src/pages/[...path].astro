@@ -27,7 +27,7 @@ path = removeLanguageFromPath(path, languages);
 
 // Re-add _site_ prefix that has been removed in GetStaticPaths
 if (Astro.isPrerendered) {
-  const site = import.meta.env.SITE_NAME;
+  const site = import.meta.env.SITECORE_DEFAULT_SITE_NAME;
   path = `${SITE_PREFIX}${site}/${path}`;
 }
 
@@ -105,6 +105,8 @@ if (page) {
 export const getStaticPaths = (async () => {
   let paths: StaticPath[] = [];
 
+  console.log("Generating static paths for SSG");
+
   if (process.env.NODE_ENV !== "development" && config.generateStaticPaths) {
     try {
       // Build static pages for a single site only.
@@ -139,7 +141,7 @@ export const getStaticPaths = (async () => {
 
 <>
   {page && <Layout page={page} />}
-  {!page && <NotFound />}
+  {!page && <p>Page not found</p>}
 </>
 
 <script is:inline>
