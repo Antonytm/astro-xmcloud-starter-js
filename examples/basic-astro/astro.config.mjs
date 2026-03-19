@@ -20,6 +20,10 @@ export default defineConfig({
   ],
   security: {
     checkOrigin: false,
+    allowedDomains: [
+      { hostname: '*.sitecorecloud.io' },
+      { hostname: '*.sitecore.cloud' },
+    ],
   },
   server: {
     port: 3005,

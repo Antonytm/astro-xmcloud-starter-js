@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^10.0.2",
-    "@exdst-sitecore-content-sdk/astro": "^0.0.15",
+    "@exdst-sitecore-content-sdk/astro": "^0.0.16",
     "@sitecore-cloudsdk/core": "^0.5.8",
     "@sitecore-cloudsdk/events": "^0.5.8",
     "@sitecore-content-sdk/core": "^1.5.1",

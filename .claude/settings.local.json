@@ -24,7 +24,28 @@
       "Bash(find C:/source/astro-xmcloud-starter-js/examples/kit-astro-skate-part/node_modules/@tailwindcss/vite -type f -name *.mjs -o -name *.js -o -name *.ts)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/)",
       "mcp__plugin_chrome-devtools-mcp_chrome-devtools__new_page",
-      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__select_page"
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__select_page",
+      "Bash(grep -r -i verticals /c/source/astro-xmcloud-starter-js --include=*.md --include=*.json --include=*.astro --include=*.ts --include=*.js)",
+      "Bash(find /c/source/astro-xmcloud-starter-js/examples/basic-astro -type f \\\\\\(-name *.ts -o -name *.tsx -o -name *.astro -o -name astro.config.* -o -name .env \\\\\\))",
+      "Bash(grep -r EDITING /c/source/astro-xmcloud-starter-js/examples/basic-astro --include=*.ts --include=*.tsx --include=*.astro --include=*.json)",
+      "Bash(find /c/source/Sitecore.Demo.XMCloud.Verticals/src/sxastarter/src/components -name *SitecoreStyles* -o -name *Editing* -o -name *Scripts*)",
+      "Bash(grep -r \"isEditing\\\\|mode.is\" /c/source/astro-xmcloud-starter-js/examples/kit-astro-skate-part/src --include=*.astro --include=*.ts)",
+      "Bash(find C:sourceSitecore.Demo.XMCloud.Verticalssrcsxastarter/temp -name *.tgz)",
+      "Bash(find C:sourceSitecore.Demo.XMCloud.Verticalssrcsxastarter/node_modules/@exdst-sitecore-content-sdk -type f -name *.js -o -name *.ts)",
+      "Bash(find C:sourceSitecore.Demo.XMCloud.Verticalssrcsxastarter/src -type f \\\\\\(-name *.ts -o -name *.js \\\\\\) -not -path */node_modules/*)",
+      "Bash(node -e \"console.log\\(require\\(''astro/package.json''\\).version\\)\")",
+      "Bash(find C:sourceSitecore.Demo.XMCloud.Verticalssrcsxastarter -type f -name .env*)",
+      "Bash(find C:sourceSitecore.Demo.XMCloud.Verticalssrcsxastarter -name *exdst* -type f)",
+      "Bash(find C:sourceSitecore.Demo.XMCloud.Verticalssrcsxastarternode_modules -name package.json -path *exdst* -o -name package.json -path *content-sdk*astro*)",
+      "Bash(find C:sourceastro-xmcloud-starter-jsexamplesbasic-astronode_modules@exdst-sitecore-content-sdk -type f -name *.js -o -name *.ts -o -name package.json)",
+      "Bash(grep -E \"\\\\.\\(mjs|js|ts\\)$\")",
+      "Bash(npx astro:*)",
+      "WebSearch",
+      "WebFetch(domain:docs.astro.build)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:vite.dev)",
+      "Bash(npx tsc:*)",
+      "Bash(npm i:*)"
     ]
   }
 }
