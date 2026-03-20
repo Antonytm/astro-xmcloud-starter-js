@@ -60,6 +60,12 @@ const itemBasis: Record<string, string> = {
             const itemTitle = item?.heading?.jsonValue;
             const itemImage = item?.image?.jsonValue;
             const itemLink = item?.link?.jsonValue;
+            // Generate descriptive link text like Next.js does
+            const linkText = itemLink?.value?.text;
+            const isGenericText = !linkText || ['learn more', 'read more', 'click here'].includes(linkText.toLowerCase());
+            const descriptiveLinkText = isGenericText && itemTitle?.value
+              ? `Read about ${itemTitle.value}`
+              : linkText;
             const basisClass = numColumns === '4'
               ? 'min-w-[238px] max-w-[416px] basis-3/4 pl-4 sm:basis-[45%] sm:pl-8 md:basis-[31%] xl:basis-[23%]'
               : 'min-w-[238px] max-w-[416px] basis-3/4 pl-4 sm:basis-[45%] sm:pl-8 md:basis-[31%]';
@@ -81,10 +87,19 @@ const itemBasis: Record<string, string> = {
                   />
                 )}
                 {(isEditing || itemLink?.value?.href) && (
-                  <Link
-                    field={itemLink}
-                    class="mt-4 text-sm font-normal hover:underline"
-                  />
+                  isEditing ? (
+                    <Link
+                      field={itemLink}
+                      class="mt-4 text-sm font-normal hover:underline"
+                    />
+                  ) : (
+                    <a
+                      href={itemLink.value.href}
+                      class="mt-4 text-sm font-normal hover:underline"
+                    >
+                      {descriptiveLinkText}
+                    </a>
+                  )
                 )}
               </div>
             );

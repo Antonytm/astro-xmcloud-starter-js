@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   // Enable React Strict Mode
   reactStrictMode: true,
 
+  // Disable dev indicator badge
+  devIndicators: false,
+
   // Disable the X-Powered-By header. Follows security best practices.
   poweredByHeader: false,
 

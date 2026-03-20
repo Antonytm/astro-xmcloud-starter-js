@@ -10,64 +10,80 @@
       "label": "Homepage",
       "url": "http://localhost:3005/",
       "referenceUrl": "http://localhost:3004/",
-      "delay": 3000,
-      "readySelector": "body",
+      "delay": 5000,
+      "readySelector": "footer",
+      "scrollToSelector": "footer",
+      "postInteractionWait": 2000,
       "misMatchThreshold": 0.1
     },
     {
       "label": "Article Page",
       "url": "http://localhost:3005/Article-Page",
       "referenceUrl": "http://localhost:3004/Article-Page",
-      "delay": 3000,
-      "readySelector": "body",
+      "delay": 5000,
+      "readySelector": "footer",
+      "scrollToSelector": "footer",
+      "postInteractionWait": 2000,
       "misMatchThreshold": 0.1
     },
     {
       "label": "Landing Page",
       "url": "http://localhost:3005/Landing-Page",
       "referenceUrl": "http://localhost:3004/Landing-Page",
-      "delay": 3000,
-      "readySelector": "body",
+      "delay": 5000,
+      "readySelector": "footer",
+      "scrollToSelector": "footer",
+      "postInteractionWait": 2000,
       "misMatchThreshold": 0.1
     },
     {
       "label": "Article 1",
       "url": "http://localhost:3005/Articles/Article-1",
       "referenceUrl": "http://localhost:3004/Articles/Article-1",
-      "delay": 3000,
-      "readySelector": "body",
+      "delay": 5000,
+      "readySelector": "footer",
+      "scrollToSelector": "footer",
+      "postInteractionWait": 2000,
       "misMatchThreshold": 0.1
     },
     {
       "label": "Article 2",
       "url": "http://localhost:3005/Articles/Article-2",
       "referenceUrl": "http://localhost:3004/Articles/Article-2",
-      "delay": 3000,
-      "readySelector": "body",
+      "delay": 5000,
+      "readySelector": "footer",
+      "scrollToSelector": "footer",
+      "postInteractionWait": 2000,
       "misMatchThreshold": 0.1
     },
     {
       "label": "Article 3",
       "url": "http://localhost:3005/Articles/Article-3",
       "referenceUrl": "http://localhost:3004/Articles/Article-3",
-      "delay": 3000,
-      "readySelector": "body",
+      "delay": 5000,
+      "readySelector": "footer",
+      "scrollToSelector": "footer",
+      "postInteractionWait": 2000,
       "misMatchThreshold": 0.1
     },
     {
       "label": "QA Article 1",
       "url": "http://localhost:3005/Articles/QA-Article-1",
       "referenceUrl": "http://localhost:3004/Articles/QA-Article-1",
-      "delay": 3000,
-      "readySelector": "body",
+      "delay": 5000,
+      "readySelector": "footer",
+      "scrollToSelector": "footer",
+      "postInteractionWait": 2000,
       "misMatchThreshold": 0.1
     },
     {
       "label": "QA Article 2",
       "url": "http://localhost:3005/Articles/QA-Article-2",
       "referenceUrl": "http://localhost:3004/Articles/QA-Article-2",
-      "delay": 3000,
-      "readySelector": "body",
+      "delay": 5000,
+      "readySelector": "footer",
+      "scrollToSelector": "footer",
+      "postInteractionWait": 2000,
       "misMatchThreshold": 0.1
     }
   ],
@@ -78,6 +94,8 @@
     "html_report": "backstop_data/html_report",
     "ci_report": "backstop_data/ci_report"
   },
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
   "engine": "puppeteer",
   "engineOptions": {
     "args": ["--no-sandbox"]

@@ -4,9 +4,12 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig: NextConfig = {
   // Allow specifying a distinct distDir when concurrently running app in a container
   distDir: process.env.NEXTJS_DIST_DIR || '.next',
-  
+
   // Enable React Strict Mode
   reactStrictMode: true,
+
+  // Disable dev indicator badge
+  devIndicators: false,
 
   // Disable the X-Powered-By header. Follows security best practices.
   poweredByHeader: false,
