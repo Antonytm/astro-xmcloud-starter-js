@@ -54,8 +54,8 @@ const itemBasis: Record<string, string> = {
       )}
     </div>
     {children.length > 0 && (
-      <div class="relative -ml-4 -mr-4 overflow-hidden sm:ml-0 xl:-mr-0">
-        <div class="my-12 flex gap-4 sm:gap-8 sm:-ml-8">
+      <div class="relative -ml-4 -mr-4 overflow-hidden sm:ml-0 sm:group-[.is-inset]:-mr-8 md:group-[.is-inset]:-mr-16 xl:-mr-0 xl:group-[.is-inset]:-mr-16 2xl:group-[.is-inset]:-mr-24">
+        <div class="mt-16 flex sm:-ml-8">
           {children.map((item: any) => {
             const itemTitle = item?.heading?.jsonValue;
             const itemImage = item?.image?.jsonValue;

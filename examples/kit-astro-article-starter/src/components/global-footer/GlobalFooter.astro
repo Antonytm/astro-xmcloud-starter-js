@@ -38,17 +38,32 @@ const footerCopyright = datasource?.footerCopyright?.jsonValue;
       </div>
       {/* Callout section */}
       <div class="@md:col-span-2 @lg:col-span-4">
-        <div class="space-y-4">
-          {footerPromoTitle && (
-            <Text tag="h3" class="text-lg font-medium" field={footerPromoTitle} />
-          )}
-          {footerPromoDescription && (
-            <Text tag="p" class="text-sm text-white/80" field={footerPromoDescription} />
-          )}
-          {footerPromoLink?.value?.href && (
-            <Link field={footerPromoLink} class="inline-block rounded-full border border-white px-4 py-2 text-sm text-white hover:bg-white/10" />
-          )}
-        </div>
+        <aside>
+          <div class="bg-accent text-accent-foreground rounded-[24px] border-none p-2">
+            <div class="flex flex-row justify-between pb-4 p-6">
+              {footerPromoTitle && (
+                <Text tag="h3" class="font-heading text-xl font-medium" field={footerPromoTitle} />
+              )}
+            </div>
+            <div class="p-6 pt-0">
+              {footerPromoDescription && (
+                <Text tag="p" class="font-body text-sm" field={footerPromoDescription} />
+              )}
+              {footerPromoLink?.value?.href && (
+                isEditing ? (
+                  <Link field={footerPromoLink} class="mt-10 block w-full text-center inline-flex items-center justify-center rounded-default bg-primary px-8 py-2-5 text-sm font-medium text-primary-foreground hover:bg-primary/90" />
+                ) : (
+                  <a
+                    href={footerPromoLink.value.href}
+                    class="mt-10 block w-full text-center inline-flex items-center justify-center rounded-default bg-primary px-8 py-2-5 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+                  >
+                    {footerPromoLink.value.text}
+                  </a>
+                )
+              )}
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
     <div class="border-t border-white/10">
