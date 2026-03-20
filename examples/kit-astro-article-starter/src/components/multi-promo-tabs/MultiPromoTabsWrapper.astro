@@ -1,7 +1,7 @@
 ---
 import type { ComponentProps } from "@/lib/component-props";
 import { useSitecore } from "@exdst-sitecore-content-sdk/astro/context";
-import { Default as MultiPromoTabs } from "./MultiPromoTabs.tsx";
+import Text from "@/components/shared/AppText.astro";
 
 const { rendering, params } = Astro.props as ComponentProps;
 const datasource = rendering?.fields?.data?.datasource;
@@ -9,59 +9,152 @@ const { page } = useSitecore();
 const isEditing = page?.mode?.isEditing ?? false;
 
 const children = datasource?.children?.results ?? [];
+const title = datasource?.title?.jsonValue;
 
-const tabs = children.map((child: any, index: number) => {
-  const tabItems = child?.children?.results ?? [];
-  return {
-    id: child?.id || `tab-${index}`,
-    label: child?.title?.jsonValue?.value || child?.title?.value || `Tab ${index + 1}`,
-    items: tabItems.map((item: any, itemIndex: number) => ({
-      id: item?.id || `item-${index}-${itemIndex}`,
-      title: item?.title?.jsonValue?.value || item?.title?.value || "",
-      description: item?.description?.jsonValue?.value || item?.description?.value || "",
-      image: item?.image?.jsonValue?.value?.src || item?.image?.value?.src || "",
-      link: item?.link?.jsonValue?.value
-        ? {
-            href: item.link.jsonValue.value.href || "",
-            text: item.link.jsonValue.value.text || item.link.jsonValue.value.title || "Learn more",
-          }
-        : item?.link?.value
-          ? {
-              href: item.link.value.href || "",
-              text: item.link.value.text || item.link.value.title || "Learn more",
-            }
-          : undefined,
-    })),
-  };
-});
+const tabs = children.map((child: any, index: number) => ({
+  id: child?.id || `tab-${index}`,
+  label: child?.title?.jsonValue?.value || `Tab ${index + 1}`,
+  image1: child?.image1?.jsonValue?.value?.src || "",
+  image2: child?.image2?.jsonValue?.value?.src || "",
+  link1: child?.link1?.jsonValue?.value?.href
+    ? { href: child.link1.jsonValue.value.href, text: child.link1.jsonValue.value.text || "Learn more" }
+    : null,
+  link2: child?.link2?.jsonValue?.value?.href
+    ? { href: child.link2.jsonValue.value.href, text: child.link2.jsonValue.value.text || "Learn more" }
+    : null,
+}));
 
-const title = datasource?.title?.jsonValue?.value || datasource?.title?.value || "";
-
-const { styles = "", RenderingIdentifier: id } = params;
+const { styles = "" } = params;
 ---
 
-<div class={`component multi-promo-tabs ${styles}`} id={id}>
-  {isEditing ? (
-    <div class="component-content p-4">
-      <p class="text-sm text-gray-500">Multi Promo Tabs (editing mode)</p>
-      {tabs.length === 0 ? (
-        <span class="is-empty-hint">Multi Promo Tabs</span>
-      ) : (
-        <div class="space-y-4">
-          {tabs.map((tab: any) => (
-            <div class="border p-4 rounded">
-              <h3 class="font-semibold">{tab.label}</h3>
-              <ul class="mt-2 space-y-2">
-                {tab.items.map((item: any) => (
-                  <li class="text-sm text-gray-600">{item.title}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+{tabs.length > 0 && (
+  <div class={`component ${styles}`} data-multi-promo-tabs>
+    <div class="@container bg-primary @md:p-12 @md:my-16 my-8 w-full">
+      {title && (
+        <Text
+          tag="h2"
+          field={title}
+          class="text-primary-foreground @md:text-6xl font-heading @sm:text-5xl -ml-1 mb-8 max-w-[20ch] text-pretty text-4xl font-normal leading-[1.1333] tracking-tighter md:max-w-[17.5ch]"
+        />
       )}
+
+      {/* Tab buttons */}
+      <div class="flex gap-2">
+        {tabs.map((tab: any, index: number) => (
+          <button
+            type="button"
+            role="tab"
+            data-tab-trigger
+            data-tab-index={index}
+            aria-selected={index === 0 ? "true" : "false"}
+            class={`font-body rounded-md border border-accent px-4 py-2 text-base font-normal transition-all duration-300 ${
+              index === 0
+                ? "bg-accent text-accent-foreground"
+                : "bg-transparent text-white"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Tab panels */}
+      {tabs.map((tab: any, index: number) => (
+        <div
+          data-tab-panel
+          data-tab-index={index}
+          role="tabpanel"
+          class={index === 0 ? "" : "hidden"}
+        >
+          <div class="@md:grid-cols-2 @md:my-16 my-8 grid grid-cols-1 gap-6">
+            {tab.image1 && (
+              <div class="group/card1 relative block cursor-pointer overflow-hidden rounded-2xl">
+                <div class="flex h-full w-full overflow-hidden">
+                  <img
+                    src={tab.image1}
+                    alt=""
+                    class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/card1:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                {tab.link1 && (
+                  <a
+                    href={tab.link1.href}
+                    class="bg-popover text-popover-foreground font-body absolute bottom-4 left-4 flex items-center gap-2 rounded-lg px-4 py-2 backdrop-blur-sm transition-all duration-500 group-hover/card1:translate-x-2"
+                  >
+                    {tab.link1.text}
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            )}
+            {tab.image2 && (
+              <div class="group/card2 relative block cursor-pointer overflow-hidden rounded-2xl">
+                <div class="flex h-full w-full overflow-hidden">
+                  <img
+                    src={tab.image2}
+                    alt=""
+                    class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/card2:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                {tab.link2 && (
+                  <a
+                    href={tab.link2.href}
+                    class="bg-popover text-popover-foreground font-body absolute bottom-4 left-4 flex items-center gap-2 rounded-lg px-4 py-2 backdrop-blur-sm transition-all duration-500 group-hover/card2:translate-x-2"
+                  >
+                    {tab.link2.text}
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
-  ) : (
-    <MultiPromoTabs client:visible tabs={tabs} title={title} />
-  )}
-</div>
+  </div>
+)}
+
+<script>
+  document.querySelectorAll('[data-multi-promo-tabs]').forEach((container) => {
+    const triggers = container.querySelectorAll('[data-tab-trigger]');
+    const panels = container.querySelectorAll('[data-tab-panel]');
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const index = (trigger as HTMLElement).dataset.tabIndex;
+
+        // Update triggers
+        triggers.forEach((t) => {
+          const tIndex = (t as HTMLElement).dataset.tabIndex;
+          if (tIndex === index) {
+            t.setAttribute('aria-selected', 'true');
+            t.classList.add('bg-accent', 'text-accent-foreground');
+            t.classList.remove('bg-transparent', 'text-white');
+          } else {
+            t.setAttribute('aria-selected', 'false');
+            t.classList.remove('bg-accent', 'text-accent-foreground');
+            t.classList.add('bg-transparent', 'text-white');
+          }
+        });
+
+        // Update panels
+        panels.forEach((p) => {
+          const pIndex = (p as HTMLElement).dataset.tabIndex;
+          if (pIndex === index) {
+            p.classList.remove('hidden');
+          } else {
+            p.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>

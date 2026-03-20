@@ -14,6 +14,10 @@ interface PromoItem {
 interface TabData {
   id: string;
   label: string;
+  image1?: string;
+  image2?: string;
+  link1?: { href: string; text: string };
+  link2?: { href: string; text: string };
   items: PromoItem[];
 }
 
@@ -32,64 +36,100 @@ export function Default({ tabs, title }: MultiPromoTabsProps) {
   const currentTab = tabs[activeTab];
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-8">
+    <div className="@container bg-primary @md:p-12 @md:my-16 my-8 w-full">
       {title && (
-        <h2 className="text-3xl font-bold text-center mb-8">{title}</h2>
+        <h2 className="text-primary-foreground @md:text-6xl font-heading @sm:text-5xl -ml-1 mb-8 max-w-[20ch] text-pretty text-4xl font-normal leading-[1.1333] tracking-tighter md:max-w-[17.5ch]">
+          {title}
+        </h2>
       )}
 
-      <div className="border-b border-gray-200 mb-8">
-        <nav className="flex gap-0 -mb-px" role="tablist" aria-label="Promo tabs">
-          {tabs.map((tab, index) => (
-            <button
-              key={tab.id}
-              role="tab"
-              aria-selected={index === activeTab}
-              aria-controls={`tabpanel-${tab.id}`}
-              onClick={() => setActiveTab(index)}
-              className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
-                index === activeTab
-                  ? "border-blue-600 text-blue-600"
-                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </nav>
+      {/* Tab buttons */}
+      <div className="flex gap-2">
+        {tabs.map((tab, index) => (
+          <button
+            key={tab.id}
+            role="tab"
+            aria-selected={index === activeTab}
+            aria-controls={`tabpanel-${tab.id}`}
+            onClick={() => setActiveTab(index)}
+            className={`font-body rounded-md border border-accent px-4 py-2 text-base font-normal transition-all duration-300 ${
+              index === activeTab
+                ? "bg-accent text-accent-foreground hover:bg-accent/90"
+                : "bg-transparent text-white hover:bg-accent hover:text-accent-foreground"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
 
+      {/* Tab content - 2 column image grid */}
       <div
         id={`tabpanel-${currentTab.id}`}
         role="tabpanel"
         aria-labelledby={`tab-${currentTab.id}`}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {currentTab.items.map((item) => (
+        <div className="@md:grid-cols-2 @md:my-16 my-8 grid grid-cols-1 gap-6">
+          {currentTab.image1 && (
             <div
-              key={item.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+              className="group/card1 relative block cursor-pointer overflow-hidden rounded-2xl"
+              onClick={() => {
+                if (currentTab.link1?.href) {
+                  window.location.href = currentTab.link1.href;
+                }
+              }}
             >
-              {item.image && (
+              <div className="flex h-full w-full overflow-hidden">
                 <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-48 object-cover"
+                  src={currentTab.image1}
+                  alt=""
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/card1:scale-105"
                 />
-              )}
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-                {item.link && (
-                  <a
-                    href={item.link.href}
-                    className="text-blue-600 hover:text-blue-800 text-sm font-medium"
-                  >
-                    {item.link.text || "Learn more"}
-                  </a>
-                )}
               </div>
+              {currentTab.link1?.href && (
+                <a
+                  href={currentTab.link1.href}
+                  className="bg-popover text-popover-foreground font-body absolute bottom-4 left-4 flex items-center gap-2 rounded-lg px-4 py-2 backdrop-blur-sm transition-all duration-500 group-hover/card1:translate-x-2"
+                >
+                  {currentTab.link1.text}
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
+              )}
             </div>
-          ))}
+          )}
+          {currentTab.image2 && (
+            <div
+              className="group/card2 relative block cursor-pointer overflow-hidden rounded-2xl"
+              onClick={() => {
+                if (currentTab.link2?.href) {
+                  window.location.href = currentTab.link2.href;
+                }
+              }}
+            >
+              <div className="flex h-full w-full overflow-hidden">
+                <img
+                  src={currentTab.image2}
+                  alt=""
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/card2:scale-105"
+                />
+              </div>
+              {currentTab.link2?.href && (
+                <a
+                  href={currentTab.link2.href}
+                  className="bg-popover text-popover-foreground font-body absolute bottom-4 left-4 flex items-center gap-2 rounded-lg px-4 py-2 backdrop-blur-sm transition-all duration-500 group-hover/card2:translate-x-2"
+                >
+                  {currentTab.link2.text}
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

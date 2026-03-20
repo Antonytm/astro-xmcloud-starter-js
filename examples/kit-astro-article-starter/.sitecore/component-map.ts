@@ -1,4 +1,8 @@
 import Container from "@/components/container/Container.astro";
+import ContainerFullBleed from "@/components/container/ContainerFullBleed.astro";
+import ContainerFullWidth from "@/components/container/ContainerFullWidth.astro";
+import Container70 from "@/components/container/Container70.astro";
+import ContainerTwoColumn from "@/components/container/ContainerTwoColumn.astro";
 import RowSplitter from "@/components/row-splitter/RowSplitter.astro";
 import ColumnSplitter from "@/components/column-splitter/ColumnSplitter.astro";
 import Title from "@/components/title/Title.astro";
@@ -42,17 +46,17 @@ import VerticalImageAccordion from "@/components/vertical-image-accordion/Vertic
 const components = new Map<string, any>([
   // Structural / SXA components
   ["Container", Container],
-  ["Container5050", Container],
-  ["Container7030", Container],
-  ["Container3070", Container],
-  ["Container4060", Container],
-  ["Container6040", Container],
+  ["Container5050", ContainerTwoColumn],
+  ["Container7030", ContainerTwoColumn],
+  ["Container3070", ContainerTwoColumn],
+  ["Container4060", ContainerTwoColumn],
+  ["Container6040", ContainerTwoColumn],
   ["Container6321", Container],
-  ["Container70", Container],
+  ["Container70", Container70],
   ["Container303030", Container],
   ["Container25252525", Container],
-  ["ContainerFullWidth", Container],
-  ["ContainerFullBleed", Container],
+  ["ContainerFullWidth", ContainerFullWidth],
+  ["ContainerFullBleed", ContainerFullBleed],
   ["RowSplitter", RowSplitter],
   ["ColumnSplitter", ColumnSplitter],
   ["Title", Title],
