@@ -42,20 +42,20 @@ const footerCopyright = datasource?.footerCopyright?.jsonValue;
           <div class="bg-accent text-accent-foreground rounded-[24px] border-none p-2">
             <div class="flex flex-row justify-between pb-4 p-6">
               {footerPromoTitle && (
-                <Text tag="h3" class="font-heading text-xl font-medium" field={footerPromoTitle} />
+                <Text tag="h3" class="font-heading text-xl font-medium tracking-tight" field={footerPromoTitle} />
               )}
             </div>
             <div class="p-6 pt-0">
               {footerPromoDescription && (
-                <Text tag="p" class="font-body text-sm" field={footerPromoDescription} />
+                <Text class="font-body text-sm" field={footerPromoDescription} />
               )}
               {footerPromoLink?.value?.href && (
                 isEditing ? (
-                  <Link field={footerPromoLink} class="mt-10 block w-full text-center inline-flex items-center justify-center rounded-default bg-primary px-8 py-2-5 text-sm font-medium text-primary-foreground hover:bg-primary/90" />
+                  <Link field={footerPromoLink} class="mt-10 block w-full rounded-default bg-primary px-8 py-2-5 text-center text-sm font-medium text-primary-foreground hover:bg-primary/90" />
                 ) : (
                   <a
                     href={footerPromoLink.value.href}
-                    class="mt-10 block w-full text-center inline-flex items-center justify-center rounded-default bg-primary px-8 py-2-5 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+                    class="mt-10 block w-full rounded-default bg-primary px-8 py-2-5 text-center text-sm font-medium text-primary-foreground hover:bg-primary/90"
                   >
                     {footerPromoLink.value.text}
                   </a>

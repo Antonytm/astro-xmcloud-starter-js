@@ -93,3 +93,7 @@
 @utility indent {
   @apply px-8 @md:px-16;
 }
+
+nextjs-portal {
+  display: none;
+}

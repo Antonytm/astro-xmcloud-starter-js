@@ -41,12 +41,12 @@ const headerContact = item?.headerContact?.jsonValue;
             const text = linkField?.value?.text;
             return isEditing ? (
               <li>
-                <Link field={linkField} class="inline-flex items-center justify-center rounded-md px-8 py-2.5 text-base font-medium hover:bg-accent" />
+                <Link field={linkField} class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-default px-8 py-2.5 text-base font-medium hover:bg-accent hover:text-accent-foreground" />
               </li>
             ) : (
               href && (
                 <li>
-                  <a href={href} class="inline-flex items-center justify-center rounded-md px-8 py-2.5 text-base font-medium hover:bg-accent">
+                  <a href={href} class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-default px-8 py-2.5 text-base font-medium hover:bg-accent hover:text-accent-foreground">
                     {text}
                   </a>
                 </li>
@@ -58,12 +58,12 @@ const headerContact = item?.headerContact?.jsonValue;
       {/* Desktop CTA */}
       {isEditing ? (
         <div class="@lg:flex @lg:items-center @lg:justify-end hidden">
-          <Link field={headerContact} class="font-heading rounded-full border px-8 py-2.5 text-sm font-medium hover:bg-accent" />
+          <Link field={headerContact} class="inline-flex items-center justify-center whitespace-nowrap font-heading rounded-full border px-8 py-2.5 text-sm font-medium hover:bg-accent hover:text-accent-foreground" />
         </div>
       ) : (
         headerContact?.value?.href && (
           <div class="@lg:flex @lg:items-center @lg:justify-end hidden">
-            <a href={headerContact.value.href} class="font-heading rounded-full border px-8 py-2.5 text-sm font-medium hover:bg-accent">
+            <a href={headerContact.value.href} class="inline-flex items-center justify-center whitespace-nowrap font-heading rounded-full border px-8 py-2.5 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
               {headerContact.value.text}
             </a>
           </div>

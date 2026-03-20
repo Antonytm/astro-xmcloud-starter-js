@@ -15,6 +15,8 @@ interface LayoutProps {
 interface RouteFields {
   [key: string]: unknown;
   Title?: Field;
+  metadataTitle?: Field;
+  pageTitle?: Field;
   metadataDescription?: Field;
   ogTitle?: Field;
   ogDescription?: Field;
@@ -34,7 +36,11 @@ const language = context.language || "en";
 const siteName = page.siteName || "Solterra & Co.";
 const siteUrl = getBaseUrl();
 
-const pageTitle = fields?.Title?.value?.toString() || "Page";
+const pageTitle =
+  fields?.metadataTitle?.value?.toString() ||
+  fields?.pageTitle?.value?.toString() ||
+  fields?.Title?.value?.toString() ||
+  "Page";
 const pageDescription = fields?.metadataDescription?.value?.toString() || fields?.ogDescription?.value?.toString() || "";
 const ogTitle = fields?.ogTitle?.value?.toString() || pageTitle;
 const ogDescription = fields?.ogDescription?.value?.toString() || pageDescription;
@@ -48,10 +54,10 @@ const canonicalUrl = `${siteUrl}${Astro.url.pathname}`;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
-    <link rel="icon" href={`${Astro.url.origin}/favicon.ico`} />
+    <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://edge-platform.sitecorecloud.io" />
     {pageDescription && <meta name="description" content={pageDescription} />}
     <link rel="canonical" href={canonicalUrl} />
@@ -109,10 +115,19 @@ const canonicalUrl = `${siteUrl}${Astro.url.pathname}`;
 
   @config "./assets/tailwind.config.cjs";
 
+  @font-face {
+    font-family: 'Figtree Fallback';
+    src: local('Arial');
+    size-adjust: 101.61%;
+    ascent-override: 93.49%;
+    descent-override: 24.60%;
+    line-gap-override: 0%;
+  }
+
   @layer base {
     :root {
-      --font-heading: 'Figtree', sans-serif;
-      --font-body: 'Figtree', sans-serif;
+      --font-heading: 'Figtree', 'Figtree Fallback', sans-serif;
+      --font-body: 'Figtree', 'Figtree Fallback', sans-serif;
       --font-accent: 'Helvetica', sans-serif;
     }
     * {
