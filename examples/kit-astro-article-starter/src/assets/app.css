@@ -27,23 +27,23 @@
 
   h1,
   .h1 {
-    @apply text-5xl font-normal md:text-6xl;
+    @apply text-5xl font-normal;
   }
   h2,
   .h2 {
-    @apply text-4xl font-normal md:text-5xl;
+    @apply text-4xl font-normal;
   }
   h3,
   .h3 {
-    @apply text-3xl font-normal md:text-4xl;
+    @apply text-3xl font-normal;
   }
   h4,
   .h4 {
-    @apply text-2xl font-normal md:text-3xl;
+    @apply text-2xl font-normal;
   }
   h5,
   .h5 {
-    @apply text-xl font-normal md:text-2xl;
+    @apply text-xl font-normal;
   }
 
   body {

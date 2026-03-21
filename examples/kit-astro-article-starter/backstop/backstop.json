@@ -24,7 +24,8 @@
       "readySelector": "footer",
       "scrollToSelector": "footer",
       "postInteractionWait": 2000,
-      "misMatchThreshold": 0.1
+      "misMatchThreshold": 0.1,
+      "hideSelectors": [".article-header"]
     },
     {
       "label": "Landing Page",
@@ -44,7 +45,8 @@
       "readySelector": "footer",
       "scrollToSelector": "footer",
       "postInteractionWait": 2000,
-      "misMatchThreshold": 0.1
+      "misMatchThreshold": 0.1,
+      "hideSelectors": [".article-header"]
     },
     {
       "label": "Article 2",
@@ -54,7 +56,8 @@
       "readySelector": "footer",
       "scrollToSelector": "footer",
       "postInteractionWait": 2000,
-      "misMatchThreshold": 0.1
+      "misMatchThreshold": 0.1,
+      "hideSelectors": [".article-header"]
     },
     {
       "label": "Article 3",
@@ -64,7 +67,8 @@
       "readySelector": "footer",
       "scrollToSelector": "footer",
       "postInteractionWait": 2000,
-      "misMatchThreshold": 0.1
+      "misMatchThreshold": 0.1,
+      "hideSelectors": [".article-header"]
     },
     {
       "label": "QA Article 1",
@@ -74,7 +78,8 @@
       "readySelector": "footer",
       "scrollToSelector": "footer",
       "postInteractionWait": 2000,
-      "misMatchThreshold": 0.1
+      "misMatchThreshold": 0.1,
+      "hideSelectors": [".article-header"]
     },
     {
       "label": "QA Article 2",
@@ -84,7 +89,8 @@
       "readySelector": "footer",
       "scrollToSelector": "footer",
       "postInteractionWait": 2000,
-      "misMatchThreshold": 0.1
+      "misMatchThreshold": 0.1,
+      "hideSelectors": [".article-header"]
     }
   ],
   "paths": {
