@@ -6,8 +6,13 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "generate:component-map": "tsx scripts/generate-component-map.ts",
+    "generate:component-map:watch": "tsx scripts/watch-component-map.ts",
+    "generate:sites": "tsx --env-file-if-exists=.env scripts/generate-sites.ts",
+    "generate:metadata": "tsx scripts/generate-metadata.ts",
+    "generate": "tsx --env-file-if-exists=.env scripts/build.ts",
+    "dev": "npm run generate:component-map && astro dev",
+    "build": "npm run generate && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -27,5 +32,9 @@
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4",
     "tsconfig-paths": "^4.2.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "~5.8.0"
   }
 }
