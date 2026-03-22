@@ -83,19 +83,19 @@ const itemBasis: Record<string, string> = {
                   <Text
                     tag="h3"
                     field={itemTitle}
-                    class="font-heading text-2xl font-medium leading-snug tracking-tighter"
+                    class="font-heading text-box-trim-both text-box-edge-asc-desc text-2xl font-medium leading-snug tracking-tighter"
                   />
                 )}
                 {(isEditing || itemLink?.value?.href) && (
                   isEditing ? (
                     <Link
                       field={itemLink}
-                      class="mt-4 text-sm font-normal hover:underline"
+                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap underline-offset-4 hover:underline py-2-5 text-box-edge-asc-desc mt-4 h-auto text-pretty px-0 pt-0 text-[0.875rem] font-normal last:pb-0"
                     />
                   ) : (
                     <a
                       href={itemLink.value.href}
-                      class="mt-4 text-sm font-normal hover:underline"
+                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap underline-offset-4 hover:underline py-2-5 text-box-edge-asc-desc mt-4 h-auto text-pretty px-0 pt-0 text-[0.875rem] font-normal last:pb-0"
                     >
                       {descriptiveLinkText}
                     </a>
