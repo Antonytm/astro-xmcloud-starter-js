@@ -67,45 +67,5 @@ const buttonClasses: Record<string, string> = {
 )}
 
 <script>
-  class AstroAnimatedSection extends HTMLElement {
-    connectedCallback() {
-      const isEditing = this.dataset.editing === 'true';
-      const direction = this.dataset.direction || 'up';
-
-      if (isEditing) {
-        this.style.opacity = '1';
-        return;
-      }
-
-      const translations: Record<string, { x: string; y: string }> = {
-        up: { x: '0', y: '2rem' },
-        down: { x: '0', y: '-2rem' },
-        left: { x: '2rem', y: '0' },
-        right: { x: '-2rem', y: '0' },
-      };
-
-      const { x, y } = translations[direction] || translations.up;
-      this.style.display = 'block';
-      this.style.transform = `translate(${x}, ${y})`;
-      this.style.opacity = '0';
-      this.style.transition = 'opacity 1000ms ease-out, transform 1000ms ease-out';
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              this.style.transform = 'translate(0, 0)';
-              this.style.opacity = '1';
-              observer.unobserve(this);
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-
-      observer.observe(this);
-    }
-  }
-
-  customElements.define('astro-animated-section', AstroAnimatedSection);
+  import '@/scripts/animated-section';
 </script>

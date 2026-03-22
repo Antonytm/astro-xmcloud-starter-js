@@ -60,35 +60,37 @@ const mediaSections: MediaItem[] = [
       <div class="grid gap-20">
         {/* Hero content */}
         <div class="mx-auto w-full max-w-screen-xl px-4 xl:px-8">
-          <div class="@lg:flex-row @lg:items-center @lg:gap-10 flex flex-col items-stretch gap-3">
-            {(titleRequired?.value || isEditing) && (
-              <Text
-                tag="h1"
-                field={titleRequired}
-                class="font-heading @lg:text-8xl @lg:leading-[90px] basis-1/2 text-5xl font-normal leading-[60px]"
-              />
-            )}
-            <div class="@lg:gap-10 flex basis-1/2 flex-col gap-8">
-              {(descriptionOptional?.value || isEditing) && (
+          <astro-animated-section data-direction="up" data-editing={isEditing ? "true" : undefined}>
+            <div class="@lg:flex-row @lg:items-center @lg:gap-10 flex flex-col items-stretch gap-3">
+              {(titleRequired?.value || isEditing) && (
                 <Text
-                  tag="p"
-                  class={`font-body line-height-[26px] text-medium font-base @md:text-xl text-lg ${descClass}`}
-                  field={descriptionOptional}
+                  tag="h1"
+                  field={titleRequired}
+                  class="font-heading @lg:text-8xl @lg:leading-[90px] basis-1/2 text-5xl font-normal leading-[60px]"
                 />
               )}
-              {linkOptional?.value?.href && (
-                <div>
-                  {isEditing ? (
-                    <Link field={linkOptional} class={`inline-block rounded-default px-8 py-2.5 font-medium ${btnClass}`} />
-                  ) : (
-                    <a href={linkOptional.value.href} class={`inline-flex items-center justify-center rounded-default bg-primary px-8 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 ${btnClass}`}>
-                      {linkOptional.value.text}
-                    </a>
-                  )}
-                </div>
-              )}
+              <div class="@lg:gap-10 flex basis-1/2 flex-col gap-8">
+                {(descriptionOptional?.value || isEditing) && (
+                  <Text
+                    tag="p"
+                    class={`font-body line-height-[26px] text-medium font-base @md:text-xl text-lg ${descClass}`}
+                    field={descriptionOptional}
+                  />
+                )}
+                {linkOptional?.value?.href && (
+                  <div>
+                    {isEditing ? (
+                      <Link field={linkOptional} class={`inline-block rounded-default px-8 py-2.5 font-medium ${btnClass}`} />
+                    ) : (
+                      <a href={linkOptional.value.href} class={`inline-flex items-center justify-center rounded-default bg-primary px-8 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 ${btnClass}`}>
+                        {linkOptional.value.text}
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          </astro-animated-section>
         </div>
         {/* Hero media sections */}
         <div class="relative flex items-center justify-center overflow-x-hidden">
@@ -203,4 +205,7 @@ const mediaSections: MediaItem[] = [
   }
 
   customElements.define('astro-hero', AstroHero);
+</script>
+<script>
+  import '@/scripts/animated-section';
 </script>
