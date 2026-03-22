@@ -106,10 +106,11 @@ const items = datasource?.items?.results ?? [];
 
             {/* Content section */}
             <div
-              class="flex flex-col py-6"
+              class="flex flex-col py-6 @md:opacity-100"
               role="tabpanel"
               id={`panel-${index}`}
               aria-labelledby={`tab-${index}`}
+              hidden={index !== 1 ? true : undefined}
             >
               {item?.title && (
                 <Text
@@ -162,12 +163,14 @@ const items = datasource?.items?.results ?? [];
           const content = otherItem.querySelector('.via-accordion-content');
           const imageContainer = otherItem.querySelector('[role="img"]');
 
+          const panel = otherItem.querySelector('[role="tabpanel"]');
           if (otherIndex === clickedIndex) {
             otherItem.classList.add('is-active');
             otherItem.classList.add('@md:w-full');
             otherItem.classList.remove('@md:w-[270px]');
             otherItem.setAttribute('aria-selected', 'true');
             otherItem.setAttribute('aria-expanded', 'true');
+            if (panel) panel.removeAttribute('hidden');
             if (content) {
               content.classList.remove('max-h-0', 'opacity-0', 'invisible');
               (content as HTMLElement).style.maxHeight = '500px';
@@ -184,6 +187,7 @@ const items = datasource?.items?.results ?? [];
             otherItem.classList.add('@md:w-[270px]');
             otherItem.setAttribute('aria-selected', 'false');
             otherItem.setAttribute('aria-expanded', 'false');
+            if (panel) panel.setAttribute('hidden', '');
             if (content) {
               content.classList.add('max-h-0', 'opacity-0', 'invisible');
               (content as HTMLElement).style.maxHeight = '0';
