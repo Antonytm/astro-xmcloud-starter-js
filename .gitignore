@@ -53,3 +53,5 @@ packages/
 /examples/kit-astro-skate-part/dist
 /examples/kit-astro-article-starter/dist
 /examples/kit-astro-article-starter/node_modules
+/examples/kit-astro-location-finder/backstop/backstop_data
+/examples/kit-astro-location-finder/node_modules

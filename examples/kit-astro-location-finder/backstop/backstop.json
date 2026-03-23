@@ -1,0 +1,206 @@
+{
+  "id": "astro-vs-nextjs",
+  "viewports": [
+    { "label": "desktop", "width": 1920, "height": 1080 },
+    { "label": "tablet", "width": 768, "height": 1024 },
+    { "label": "mobile", "width": 375, "height": 812 }
+  ],
+  "scenarios": [
+    {
+      "label": "Homepage",
+      "url": "http://localhost:3005/",
+      "referenceUrl": "http://localhost:3004/",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "About",
+      "url": "http://localhost:3005/About",
+      "referenceUrl": "http://localhost:3004/About",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Products",
+      "url": "http://localhost:3005/Products",
+      "referenceUrl": "http://localhost:3004/Products",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Products - Aero",
+      "url": "http://localhost:3005/Products/Aero",
+      "referenceUrl": "http://localhost:3004/Products/Aero",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Products - Nexa",
+      "url": "http://localhost:3005/Products/Nexa",
+      "referenceUrl": "http://localhost:3004/Products/Nexa",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Products - Terra",
+      "url": "http://localhost:3005/Products/Terra",
+      "referenceUrl": "http://localhost:3004/Products/Terra",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Location Search",
+      "url": "http://localhost:3005/Location-Search",
+      "referenceUrl": "http://localhost:3004/Location-Search",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 5,
+      "hideSelectors": [".gm-style", "[data-component='GoogleMap']", "iframe"]
+    },
+    {
+      "label": "Find Location",
+      "url": "http://localhost:3005/Find-Location",
+      "referenceUrl": "http://localhost:3004/Find-Location",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 5,
+      "hideSelectors": [".gm-style", "[data-component='GoogleMap']", "iframe"]
+    },
+    {
+      "label": "Services",
+      "url": "http://localhost:3005/Services",
+      "referenceUrl": "http://localhost:3004/Services",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Contact",
+      "url": "http://localhost:3005/Contact",
+      "referenceUrl": "http://localhost:3004/Contact",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Test Drive",
+      "url": "http://localhost:3005/Test-Drive",
+      "referenceUrl": "http://localhost:3004/Test-Drive",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "FAQ",
+      "url": "http://localhost:3005/FAQ",
+      "referenceUrl": "http://localhost:3004/FAQ",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Landing Page",
+      "url": "http://localhost:3005/Landing-Page",
+      "referenceUrl": "http://localhost:3004/Landing-Page",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Sustainability",
+      "url": "http://localhost:3005/Sustainability",
+      "referenceUrl": "http://localhost:3004/Sustainability",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Careers",
+      "url": "http://localhost:3005/Careers",
+      "referenceUrl": "http://localhost:3004/Careers",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Blog",
+      "url": "http://localhost:3005/Blog",
+      "referenceUrl": "http://localhost:3004/Blog",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "News",
+      "url": "http://localhost:3005/News",
+      "referenceUrl": "http://localhost:3004/News",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Support",
+      "url": "http://localhost:3005/Support",
+      "referenceUrl": "http://localhost:3004/Support",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 3
+    },
+    {
+      "label": "Locations",
+      "url": "http://localhost:3005/Locations",
+      "referenceUrl": "http://localhost:3004/Locations",
+      "delay": 5000,
+      "readySelector": "body",
+      "postInteractionWait": 3000,
+      "misMatchThreshold": 5,
+      "hideSelectors": [".gm-style", "[data-component='GoogleMap']", "iframe"]
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "report": ["browser"],
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false,
+  "requireSameDimensions": false,
+  "resembleOutputOptions": {
+    "ignoreAntialiasing": true
+  }
+}
