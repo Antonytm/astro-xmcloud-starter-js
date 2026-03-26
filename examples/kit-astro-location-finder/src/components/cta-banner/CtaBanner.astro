@@ -44,20 +44,26 @@ const buttonClasses: Record<string, string> = {
           class="mx-auto mb-16 max-w-xl text-lg antialiased"
           field={descriptionOptional}
         />
-        {linkOptional?.value?.href && (
+        {linkOptional && (
           isEditing ? (
             <Link
               field={linkOptional}
               class={buttonClasses[colorScheme] || buttonClasses.default}
             />
-          ) : (
+          ) : linkOptional?.value?.href ? (
             <a
               href={linkOptional.value.href}
               class={buttonClasses[colorScheme] || buttonClasses.default}
             >
               {linkOptional.value.text}
             </a>
-          )
+          ) : linkOptional?.value?.text ? (
+            <span
+              class={buttonClasses[colorScheme] || buttonClasses.default}
+            >
+              {linkOptional.value.text}
+            </span>
+          ) : null
         )}
       </astro-animated-section>
     </div>

@@ -104,3 +104,84 @@
   @apply px-8 @md:px-16;
 }
 
+@utility text-shadow {
+  --text-shadow-offset-x: 0;
+  --text-shadow-offset-y: 0;
+  --text-shadow-blur: var(--blur-default);
+  --text-shadow-color: rgba(0, 0, 0, 1);
+  text-shadow: var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur)
+    var(--text-shadow-color);
+}
+
+@utility text-shadow-blur-none {
+  --text-shadow-blur: var(--blur-none);
+}
+
+@utility text-shadow-blur-sm {
+  --text-shadow-blur: var(--blur-sm);
+  --text-shadow-blur: var(--blur-default);
+}
+
+@utility text-shadow-blur-md {
+  --text-shadow-blur: var(--blur-md);
+}
+
+@utility text-shadow-blur-lg {
+  --text-shadow-blur: var(--blur-lg);
+}
+
+@utility text-shadow-blur-xl {
+  --text-shadow-blur: var(--blur-xl);
+}
+
+@utility text-shadow-blur-2xl {
+  --text-shadow-blur: var(--blur-2xl);
+}
+
+@utility text-shadow-blur-3xl {
+  --text-shadow-blur: var(--blur-3xl);
+}
+
+@utility fade-to-transparent {
+  mask-image: linear-gradient(
+    to var(--fade-direction),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 33%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+@utility fade-to-transparent-right {
+  --fade-direction: right;
+}
+
+@utility fade-to-transparent-top {
+  --fade-direction: top;
+}
+
+@utility fade-to-transparent-left {
+  --fade-direction: left;
+}
+
+@utility fade-to-transparent-bottom {
+  --fade-direction: bottom;
+}
+
+@utility ck-content {
+  ul,
+  ol {
+    all: revert;
+  }
+}
+
+@utility text-fill-transparent {
+  -webkit-text-fill-color: transparent;
+}
+
+@utility vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(360deg);
+  text-orientation: mixed;
+  height: 100%;
+}
+

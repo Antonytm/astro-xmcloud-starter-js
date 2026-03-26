@@ -22,26 +22,33 @@ const headerContact = item?.headerContact?.jsonValue;
     <div class="@xl:px-8 relative mx-auto flex h-16 w-full max-w-screen-2xl items-center justify-between px-4">
       {/* Desktop Navigation */}
       <nav class="@lg:flex @lg:flex-[2] z-10 hidden" aria-label="Primary navigation">
-        <ul class="flex w-full justify-between">
-          {links.map((item: any) => {
-            const linkField = item.link?.jsonValue;
-            const href = linkField?.value?.href;
-            const text = linkField?.value?.text;
-            return isEditing ? (
-              <li>
-                <Link field={linkField} class="font-body inline-flex items-center justify-center gap-2 whitespace-nowrap bg-transparent px-8 py-2.5 text-base font-medium hover:bg-transparent" />
-              </li>
-            ) : (
-              href && (
-                <li>
-                  <a href={href} class="font-body inline-flex items-center justify-center gap-2 whitespace-nowrap bg-transparent px-8 py-2.5 text-base font-medium hover:bg-transparent">
-                    {text}
-                  </a>
-                </li>
-              )
-            );
-          })}
-        </ul>
+        <div class="relative w-full">
+          <div class="relative flex-row">
+            <span data-nav-highlight class="absolute z-[-1] block rounded-sm bg-primary" style="opacity: 0; left: 0; top: 0; width: 0; height: 100%; transition: opacity 0.2s, left 0.2s, width 0.2s;"></span>
+            <div style="position:relative">
+              <ul class="flex list-none items-center space-x-1">
+                {links.map((item: any) => {
+                  const linkField = item.link?.jsonValue;
+                  const href = linkField?.value?.href;
+                  const text = linkField?.value?.text;
+                  return isEditing ? (
+                    <li>
+                      <Link field={linkField} class="font-body inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-default bg-transparent px-4 py-2.5 text-base font-medium transition-colors hover:bg-transparent hover:text-accent-foreground" />
+                    </li>
+                  ) : (
+                    href && (
+                      <li>
+                        <a href={href} class="font-body inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-default bg-transparent px-4 py-2.5 text-base font-medium transition-colors hover:bg-transparent hover:text-accent-foreground">
+                          {text}
+                        </a>
+                      </li>
+                    )
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
       </nav>
       {/* Centered Logo */}
       <div class="absolute left-1/2 top-1/2 flex w-[112px] -translate-x-1/2 -translate-y-1/2 items-center justify-center">
@@ -58,12 +65,12 @@ const headerContact = item?.headerContact?.jsonValue;
       {/* Desktop CTA */}
       {isEditing ? (
         <div class="@lg:flex @lg:items-center @lg:justify-end @lg:flex-1 z-10 hidden">
-          <Link field={headerContact} class="font-heading inline-flex items-center justify-center whitespace-nowrap rounded-default bg-primary px-8 py-2.5 text-base font-medium text-primary-foreground hover:bg-primary/90" />
+          <Link field={headerContact} class="font-heading inline-flex items-center justify-center whitespace-nowrap rounded-default bg-primary px-4 py-2.5 text-base font-medium text-primary-foreground hover:bg-primary-hover" />
         </div>
       ) : (
         headerContact?.value?.href && (
           <div class="@lg:flex @lg:items-center @lg:justify-end @lg:flex-1 z-10 hidden">
-            <a href={headerContact.value.href} class="font-heading inline-flex items-center justify-center whitespace-nowrap rounded-default bg-primary px-8 py-2.5 text-base font-medium text-primary-foreground hover:bg-primary/90">
+            <a href={headerContact.value.href} class="font-heading inline-flex items-center justify-center whitespace-nowrap rounded-default bg-primary px-4 py-2.5 text-base font-medium text-primary-foreground hover:bg-primary-hover">
               {headerContact.value.text}
             </a>
           </div>
@@ -130,6 +137,25 @@ const headerContact = item?.headerContact?.jsonValue;
     connectedCallback() {
       // Scroll hide/show
       window.addEventListener('scroll', this.handleScroll.bind(this), { passive: true });
+
+      // Nav hover highlight
+      const highlight = this.querySelector('[data-nav-highlight]') as HTMLElement;
+      const navLinks = this.querySelectorAll('nav[aria-label="Primary navigation"] li');
+      if (highlight && navLinks.length) {
+        navLinks.forEach((li) => {
+          li.addEventListener('mouseenter', () => {
+            const rect = li.getBoundingClientRect();
+            const parentRect = li.closest('.relative')!.getBoundingClientRect();
+            highlight.style.opacity = '1';
+            highlight.style.left = `${rect.left - parentRect.left}px`;
+            highlight.style.width = `${rect.width}px`;
+          });
+        });
+        const navContainer = this.querySelector('nav[aria-label="Primary navigation"]');
+        navContainer?.addEventListener('mouseleave', () => {
+          highlight.style.opacity = '0';
+        });
+      }
 
       // Mobile menu
       this.menuToggle?.addEventListener('click', () => {

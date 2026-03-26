@@ -101,8 +101,8 @@ const needsBanner = isEditing
           class="@sm/herowrapper:px-0 @md/herowrapper:mt-7 mt-4 w-full px-5"
         >
           <ZipcodeSearchForm
-            placeholder={dictionary?.ZipPlaceholder || ''}
-            buttonText={dictionary?.SubmitCTALabel || ''}
+            placeholder={dictionary?.ZipPlaceholder || 'Enter your zipcode.'}
+            buttonText={dictionary?.SubmitCTALabel || 'Find Availability'}
             searchLinkHref={searchLink?.value?.href || ''}
           />
         </astro-animated-section>
@@ -133,12 +133,12 @@ const needsBanner = isEditing
                   {isEditing ? (
                     <Link
                       field={bannerCTA}
-                      class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+                      class="inline-flex items-center justify-center whitespace-nowrap rounded-default font-heading bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary-hover"
                     />
                   ) : (
                     <a
                       href={bannerCTA.value.href}
-                      class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+                      class="inline-flex items-center justify-center whitespace-nowrap rounded-default font-heading bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary-hover"
                     >
                       {bannerCTA.value.text}
                     </a>

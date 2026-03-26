@@ -18,10 +18,10 @@ const tagline = datasource?.tagline?.jsonValue;
 const emailSubscriptionTitle = datasource?.emailSubscriptionTitle?.jsonValue;
 const dictionary = rendering?.fields?.dictionary || {};
 const globalDictionary = {
-  FOOTER_EmailPlaceholder: t("FOOTER_EmailPlaceholder") || dictionary?.FOOTER_EmailPlaceholder,
-  FOOTER_EmailSubmitLabel: t("FOOTER_EmailSubmitLabel") || dictionary?.FOOTER_EmailSubmitLabel,
-  FOOTER_EmailErrorMessage: t("FOOTER_EmailErrorMessage") || dictionary?.FOOTER_EmailErrorMessage,
-  FOOTER_EmailSuccessMessage: t("FOOTER_EmailSuccessMessage") || dictionary?.FOOTER_EmailSuccessMessage,
+  FOOTER_EmailPlaceholder: t("Demo2_Footer_EmailPlaceholder") || dictionary?.FOOTER_EmailPlaceholder,
+  FOOTER_EmailSubmitLabel: t("Demo2_Footer_EmailSubmitLabel") || dictionary?.FOOTER_EmailSubmitLabel,
+  FOOTER_EmailErrorMessage: t("Demo2_Footer_EmailErrorMessage") || dictionary?.FOOTER_EmailErrorMessage,
+  FOOTER_EmailSuccessMessage: t("Demo2_Footer_EmailSuccessMessage") || dictionary?.FOOTER_EmailSuccessMessage,
 };
 ---
 
@@ -57,28 +57,33 @@ const globalDictionary = {
               />
             )}
             {/* Navigation links */}
-            <nav>
-              <ul class="flex list-none flex-wrap gap-0 p-0">
-                {footerNavLinks.map((navLink: any) => {
-                  const linkField = navLink?.link?.jsonValue;
-                  const href = linkField?.value?.href;
-                  const text = linkField?.value?.text;
-                  return isEditing ? (
-                    <li>
-                      <Link field={linkField} class="relative inline-flex items-center justify-center whitespace-nowrap px-8 py-2.5 text-base font-medium hover:bg-transparent" />
-                    </li>
-                  ) : (
-                    href && (
-                      <li>
-                        <a href={href} class="relative inline-flex items-center justify-center whitespace-nowrap px-8 py-2.5 text-base font-medium hover:bg-transparent">
-                          {text}
-                        </a>
+            <astro-footer-nav>
+            <nav aria-label="Footer navigation">
+              <div class="relative flex-row">
+                <span data-nav-highlight class="z-0 absolute block h-0-5 bg-secondary rounded-default bottom-0" style="opacity: 0; left: 0; top: 0; width: 0; height: 100%;"></span>
+                <ul class="flex list-none flex-wrap gap-4 p-0 items-start @md:flex-row flex-col">
+                  {footerNavLinks.map((navLink: any) => {
+                    const linkField = navLink?.link?.jsonValue;
+                    const href = linkField?.value?.href;
+                    const text = linkField?.value?.text;
+                    return isEditing ? (
+                      <li class="relative">
+                        <Link field={linkField} class="font-heading inline-flex items-center justify-center whitespace-nowrap rounded-default bg-transparent px-4 py-2.5 text-lg font-medium antialiased hover:bg-transparent hover:text-accent-foreground" />
                       </li>
-                    )
-                  );
-                })}
-              </ul>
+                    ) : (
+                      href && (
+                        <li class="relative">
+                          <a href={href} class="font-heading inline-flex items-center justify-center whitespace-nowrap rounded-default bg-transparent px-4 py-2.5 text-lg font-medium antialiased hover:bg-transparent hover:text-accent-foreground">
+                            {text}
+                          </a>
+                        </li>
+                      )
+                    );
+                  })}
+                </ul>
+              </div>
             </nav>
+            </astro-footer-nav>
             <div class="mt-10 max-w-[400px]">
               {emailSubscriptionTitle && (
                 <Text
@@ -130,7 +135,7 @@ const globalDictionary = {
             </ul>
             {/* Copyright text */}
             {footerCopyright && (
-              <Text field={footerCopyright} />
+              <Text tag="span" field={footerCopyright} />
             )}
           </div>
         </div>
@@ -143,3 +148,31 @@ const globalDictionary = {
 ) : (
   <div class="is-empty-hint">Global Footer</div>
 )}
+
+<script>
+  class AstroFooterNav extends HTMLElement {
+    connectedCallback() {
+      const highlight = this.querySelector('[data-nav-highlight]');
+      const wrapper = this.querySelector('.relative');
+      const items = this.querySelectorAll('li');
+      if (!highlight || !wrapper || !items.length) return;
+
+      items.forEach((li) => {
+        li.addEventListener('mouseenter', () => {
+          const rect = li.getBoundingClientRect();
+          const parentRect = wrapper.getBoundingClientRect();
+          highlight.style.opacity = '1';
+          highlight.style.left = `${rect.left - parentRect.left}px`;
+          highlight.style.width = `${rect.width}px`;
+          highlight.style.top = '0px';
+          highlight.style.height = '100%';
+        });
+      });
+
+      wrapper.addEventListener('mouseleave', () => {
+        highlight.style.opacity = '0';
+      });
+    }
+  }
+  customElements.define('astro-footer-nav', AstroFooterNav);
+</script>

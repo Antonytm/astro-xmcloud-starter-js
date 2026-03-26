@@ -84,8 +84,8 @@ const needsBanner = isEditing
           data-editing={isEditing ? "true" : undefined}
         >
           <ZipcodeSearchForm
-            placeholder={dictionary?.ZipPlaceholder || ''}
-            buttonText={dictionary?.SubmitCTALabel || ''}
+            placeholder={dictionary?.ZipPlaceholder || 'Enter your zipcode.'}
+            buttonText={dictionary?.SubmitCTALabel || 'Find Availability'}
             searchLinkHref={searchLink?.value?.href || ''}
           />
         </astro-animated-section>
@@ -132,12 +132,12 @@ const needsBanner = isEditing
               {isEditing ? (
                 <Link
                   field={bannerCTA}
-                  class="inline-flex items-center justify-center rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary/80"
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-default font-heading bg-secondary px-4 py-2.5 text-sm font-medium text-secondary-foreground hover:bg-secondary/80"
                 />
               ) : (
                 <a
                   href={bannerCTA.value.href}
-                  class="inline-flex items-center justify-center rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary/80"
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-default font-heading bg-secondary px-4 py-2.5 text-sm font-medium text-secondary-foreground hover:bg-secondary/80"
                 >
                   {bannerCTA.value.text}
                 </a>
