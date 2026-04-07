@@ -79,14 +79,26 @@ module.exports = {
             container: {
                 center: true,
             },
+            // Match Tailwind v4's default container-query scale (used by
+            // kit-nextjs-location-finder). Previously these were aliased to
+            // viewport breakpoints (lg=1024px etc.), which made
+            // `@lg/herowrapper:` etc. activate at different container widths
+            // than the Next.js example and shifted the hero, sections, and
+            // many other components at every viewport.
             containers: {
-                xs: '400px',
-                sm: '640px',
-                md: '768px',
-                lg: '1024px',
-                xl: '1280px',
-                '2xl': '1536px',
-                '3xl': '1920px',
+                '3xs': '16rem',
+                '2xs': '18rem',
+                xs: '20rem',
+                sm: '24rem',
+                md: '28rem',
+                lg: '32rem',
+                xl: '36rem',
+                '2xl': '42rem',
+                '3xl': '48rem',
+                '4xl': '56rem',
+                '5xl': '64rem',
+                '6xl': '72rem',
+                '7xl': '80rem',
             },
             fontFamily: {
                 heading: 'var(--font-heading)',

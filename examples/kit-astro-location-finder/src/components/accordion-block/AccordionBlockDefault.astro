@@ -59,7 +59,7 @@ const accordionItems = datasource?.children?.results ?? [];
                   class="inline-flex items-center justify-center whitespace-nowrap rounded-default bg-secondary px-8 py-2.5 text-sm font-medium text-secondary-foreground hover:bg-secondary/80"
                 />
               ) : (
-                link?.value?.href && (
+                link?.value?.href && link?.value?.text && (
                   <a
                     href={link.value.href}
                     class="inline-flex items-center justify-center whitespace-nowrap rounded-default bg-secondary px-8 py-2.5 text-sm font-medium text-secondary-foreground hover:bg-secondary/80"

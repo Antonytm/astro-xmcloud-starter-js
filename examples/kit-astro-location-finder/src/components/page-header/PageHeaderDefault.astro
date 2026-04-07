@@ -81,18 +81,18 @@ const stylesClass = params?.styles || '';
                 <div class="mt-9 flex flex-wrap gap-4">
                   {link1?.value?.href && (
                     isEditing ? (
-                      <Link field={link1} class="inline-flex items-center justify-center rounded-default bg-primary px-8 py-2-5 text-sm font-medium text-primary-foreground hover:bg-primary/90" />
+                      <Link field={link1} class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-default font-heading ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 antialiased font-medium bg-primary text-primary-foreground hover:bg-primary-hover px-4 py-2-5 text-sm" />
                     ) : (
-                      <a href={link1.value.href} class="inline-flex items-center justify-center rounded-default bg-primary px-8 py-2-5 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+                      <a href={link1.value.href} class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-default font-heading ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 antialiased font-medium bg-primary text-primary-foreground hover:bg-primary-hover px-4 py-2-5 text-sm">
                         {link1.value.text}
                       </a>
                     )
                   )}
                   {link2?.value?.href && (
                     isEditing ? (
-                      <Link field={link2} class="inline-flex items-center justify-center rounded-default bg-secondary px-8 py-2-5 text-sm font-medium text-secondary-foreground hover:bg-secondary/80" />
+                      <Link field={link2} class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-default font-heading ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 antialiased font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 px-4 py-2-5 text-sm" />
                     ) : (
-                      <a href={link2.value.href} class="inline-flex items-center justify-center rounded-default bg-secondary px-8 py-2-5 text-sm font-medium text-secondary-foreground hover:bg-secondary/80">
+                      <a href={link2.value.href} class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-default font-heading ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 antialiased font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 px-4 py-2-5 text-sm">
                         {link2.value.text}
                       </a>
                     )
