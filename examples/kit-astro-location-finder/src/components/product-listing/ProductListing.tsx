@@ -86,7 +86,7 @@ function ProductListingCard({
 
         <div className="border-muted-foreground border-t pt-4">
           <h4 className="text-secondary-foreground font-regular text-xl mb-2">{product.productFeatureTitle}</h4>
-          <p className="text-muted-foreground text-sm font-light">{product.productFeatureText}</p>
+          <p className="text-muted-foreground text-sm font-light whitespace-pre-line">{product.productFeatureText}</p>
         </div>
 
         <div className="border-muted-foreground border-t pt-4">

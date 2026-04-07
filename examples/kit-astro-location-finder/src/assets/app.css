@@ -68,6 +68,9 @@
       'rlig' 1,
       'calt' 1;
   }
+  main {
+    @apply text-xl;
+  }
 }
 
 @utility text-box-trim-top {
@@ -184,4 +187,5 @@
   text-orientation: mixed;
   height: 100%;
 }
+
 

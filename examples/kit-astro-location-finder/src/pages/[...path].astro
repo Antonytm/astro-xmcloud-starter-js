@@ -55,6 +55,10 @@ if (context.preview && isDesignLibraryPreviewData(context.previewData)) {
       });
 }
 
+if (!page) {
+  Astro.response.status = 404;
+}
+
 if (page) {
   const dictionary = await client.getDictionary({
     site: page.siteName,

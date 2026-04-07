@@ -14,6 +14,8 @@ const title = datasource?.title?.jsonValue?.value || "";
 const slides = (datasource?.imageItems?.results ?? []).map((item: any) => ({
   image: item.image?.jsonValue?.value?.src || "",
   imageAlt: item.image?.jsonValue?.value?.alt || "",
+  imageWidth: Number(item.image?.jsonValue?.value?.width) || undefined,
+  imageHeight: Number(item.image?.jsonValue?.value?.height) || undefined,
   backgroundText: item.backgroundText?.jsonValue?.value || "",
   linkHref: item.link?.jsonValue?.value?.href || "",
   linkText: item.link?.jsonValue?.value?.text || "",
@@ -24,7 +26,7 @@ const styles = params?.styles || "";
 
 {slides.length > 0 && (
   <ImageCarouselIsland
-    client:visible
+    client:load
     variant={isEditing ? "EditMode" : "Default"}
     title={title}
     slides={slides}

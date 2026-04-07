@@ -1,6 +1,8 @@
 ---
 /**
- * Simple "Page not found" component.
+ * Fallback "Page not found" view. Mirrors the Next.js example's
+ * src/app/[site]/[locale]/[[...path]]/not-found.tsx fallback markup
+ * so /aaa renders identically on both stacks.
  */
 ---
 
@@ -9,12 +11,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Page not found</title>
+    <title>Page</title>
     <link rel="icon" href="/favicon.ico" />
   </head>
   <body>
-    <div style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="padding: 10px;">
       <h1>Page not found</h1>
+      <p>This page does not exist.</p>
+      <a href="/">Go to the Home page</a>
     </div>
   </body>
 </html>

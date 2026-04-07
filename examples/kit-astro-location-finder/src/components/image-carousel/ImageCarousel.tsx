@@ -9,6 +9,8 @@ import { m } from "framer-motion";
 export interface ImageCarouselSlide {
   image: string;
   imageAlt: string;
+  imageWidth?: number;
+  imageHeight?: number;
   backgroundText: string;
   linkHref: string;
   linkText: string;
@@ -120,7 +122,15 @@ function ImageCarouselDefault({ title, slides, styles = "" }: Omit<ImageCarousel
                   )}
                 </div>
                 {slide.image && (
-                  <img src={slide.image} alt={slide.imageAlt} className={mainImageClasses} loading="lazy" />
+                  <img
+                    src={slide.image}
+                    alt={slide.imageAlt}
+                    width={slide.imageWidth}
+                    height={slide.imageHeight}
+                    style={{ width: '100%', height: 'auto' }}
+                    className={mainImageClasses}
+                    loading="lazy"
+                  />
                 )}
               </CarouselItem>
             ))}

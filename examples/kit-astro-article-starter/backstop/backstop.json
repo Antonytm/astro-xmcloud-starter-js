@@ -11,8 +11,7 @@
       "url": "http://localhost:3005/",
       "referenceUrl": "http://localhost:3004/",
       "delay": 5000,
-      "readySelector": "footer",
-      "scrollToSelector": "footer",
+      "readySelector": "body",
       "postInteractionWait": 2000,
       "misMatchThreshold": 3
     },
@@ -21,8 +20,7 @@
       "url": "http://localhost:3005/Article-Page",
       "referenceUrl": "http://localhost:3004/Article-Page",
       "delay": 5000,
-      "readySelector": "footer",
-      "scrollToSelector": "footer",
+      "readySelector": "body",
       "postInteractionWait": 2000,
       "misMatchThreshold": 3,
       "hideSelectors": [".article-header"]
@@ -32,8 +30,7 @@
       "url": "http://localhost:3005/Landing-Page",
       "referenceUrl": "http://localhost:3004/Landing-Page",
       "delay": 5000,
-      "readySelector": "footer",
-      "scrollToSelector": "footer",
+      "readySelector": "body",
       "postInteractionWait": 2000,
       "misMatchThreshold": 3
     },
@@ -42,8 +39,7 @@
       "url": "http://localhost:3005/Articles/Article-1",
       "referenceUrl": "http://localhost:3004/Articles/Article-1",
       "delay": 5000,
-      "readySelector": "footer",
-      "scrollToSelector": "footer",
+      "readySelector": "body",
       "postInteractionWait": 2000,
       "misMatchThreshold": 3,
       "hideSelectors": [".article-header"]
@@ -53,8 +49,7 @@
       "url": "http://localhost:3005/Articles/Article-2",
       "referenceUrl": "http://localhost:3004/Articles/Article-2",
       "delay": 5000,
-      "readySelector": "footer",
-      "scrollToSelector": "footer",
+      "readySelector": "body",
       "postInteractionWait": 2000,
       "misMatchThreshold": 3,
       "hideSelectors": [".article-header"]
@@ -64,8 +59,7 @@
       "url": "http://localhost:3005/Articles/Article-3",
       "referenceUrl": "http://localhost:3004/Articles/Article-3",
       "delay": 5000,
-      "readySelector": "footer",
-      "scrollToSelector": "footer",
+      "readySelector": "body",
       "postInteractionWait": 2000,
       "misMatchThreshold": 3,
       "hideSelectors": [".article-header"]
@@ -75,8 +69,7 @@
       "url": "http://localhost:3005/Articles/QA-Article-1",
       "referenceUrl": "http://localhost:3004/Articles/QA-Article-1",
       "delay": 5000,
-      "readySelector": "footer",
-      "scrollToSelector": "footer",
+      "readySelector": "body",
       "postInteractionWait": 2000,
       "misMatchThreshold": 3,
       "hideSelectors": [".article-header"]
@@ -86,8 +79,7 @@
       "url": "http://localhost:3005/Articles/QA-Article-2",
       "referenceUrl": "http://localhost:3004/Articles/QA-Article-2",
       "delay": 5000,
-      "readySelector": "footer",
-      "scrollToSelector": "footer",
+      "readySelector": "body",
       "postInteractionWait": 2000,
       "misMatchThreshold": 3,
       "hideSelectors": [".article-header"]

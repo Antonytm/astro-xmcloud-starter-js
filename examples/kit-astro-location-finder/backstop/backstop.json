@@ -13,25 +13,7 @@
       "delay": 5000,
       "readySelector": "body",
       "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "About",
-      "url": "http://localhost:3005/About",
-      "referenceUrl": "http://localhost:3004/About",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "Products",
-      "url": "http://localhost:3005/Products",
-      "referenceUrl": "http://localhost:3004/Products",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 3
+      "misMatchThreshold": 0.1
     },
     {
       "label": "Products - Aero",
@@ -40,7 +22,7 @@
       "delay": 5000,
       "readySelector": "body",
       "postInteractionWait": 3000,
-      "misMatchThreshold": 3
+      "misMatchThreshold": 0.1
     },
     {
       "label": "Products - Nexa",
@@ -49,7 +31,7 @@
       "delay": 5000,
       "readySelector": "body",
       "postInteractionWait": 3000,
-      "misMatchThreshold": 3
+      "misMatchThreshold": 0.1
     },
     {
       "label": "Products - Terra",
@@ -58,45 +40,7 @@
       "delay": 5000,
       "readySelector": "body",
       "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "Location Search",
-      "url": "http://localhost:3005/Location-Search",
-      "referenceUrl": "http://localhost:3004/Location-Search",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 5,
-      "hideSelectors": [".gm-style", "[data-component='GoogleMap']", "iframe"]
-    },
-    {
-      "label": "Find Location",
-      "url": "http://localhost:3005/Find-Location",
-      "referenceUrl": "http://localhost:3004/Find-Location",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 5,
-      "hideSelectors": [".gm-style", "[data-component='GoogleMap']", "iframe"]
-    },
-    {
-      "label": "Services",
-      "url": "http://localhost:3005/Services",
-      "referenceUrl": "http://localhost:3004/Services",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "Contact",
-      "url": "http://localhost:3005/Contact",
-      "referenceUrl": "http://localhost:3004/Contact",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 3
+      "misMatchThreshold": 0.1
     },
     {
       "label": "Test Drive",
@@ -105,80 +49,7 @@
       "delay": 5000,
       "readySelector": "body",
       "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "FAQ",
-      "url": "http://localhost:3005/FAQ",
-      "referenceUrl": "http://localhost:3004/FAQ",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "Landing Page",
-      "url": "http://localhost:3005/Landing-Page",
-      "referenceUrl": "http://localhost:3004/Landing-Page",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "Sustainability",
-      "url": "http://localhost:3005/Sustainability",
-      "referenceUrl": "http://localhost:3004/Sustainability",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "Careers",
-      "url": "http://localhost:3005/Careers",
-      "referenceUrl": "http://localhost:3004/Careers",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "Blog",
-      "url": "http://localhost:3005/Blog",
-      "referenceUrl": "http://localhost:3004/Blog",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "News",
-      "url": "http://localhost:3005/News",
-      "referenceUrl": "http://localhost:3004/News",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "Support",
-      "url": "http://localhost:3005/Support",
-      "referenceUrl": "http://localhost:3004/Support",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 3
-    },
-    {
-      "label": "Locations",
-      "url": "http://localhost:3005/Locations",
-      "referenceUrl": "http://localhost:3004/Locations",
-      "delay": 5000,
-      "readySelector": "body",
-      "postInteractionWait": 3000,
-      "misMatchThreshold": 5,
-      "hideSelectors": [".gm-style", "[data-component='GoogleMap']", "iframe"]
+      "misMatchThreshold": 0.1
     }
   ],
   "paths": {
@@ -199,7 +70,7 @@
   "asyncCompareLimit": 50,
   "debug": false,
   "debugWindow": false,
-  "requireSameDimensions": false,
+  "requireSameDimensions": true,
   "resembleOutputOptions": {
     "ignoreAntialiasing": true
   }

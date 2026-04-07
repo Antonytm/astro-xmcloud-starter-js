@@ -118,6 +118,21 @@ const canonicalUrl = `${siteUrl}${Astro.url.pathname}`;
 
   @config "./assets/tailwind.config.cjs";
 
+  /*
+   * Restore the double-border suppression that the Tailwind variant
+   * `[.border-b-2+&]:border-t-0` (used on bordered sections like
+   * ProductListing/PromoImage/AccordionBlock) can't reach in Astro because
+   * each client island is wrapped in an <astro-island> element, breaking
+   * the previous-sibling selector. Without this, two adjacent bordered
+   * sections render with a 4px combined border instead of 2px and shift
+   * everything below them down by 2px.
+   */
+  .border-b-2 + astro-island > .border-t-2,
+  astro-island:has(> .border-b-2) + astro-island > .border-t-2,
+  astro-island:has(> .border-b-2) + .border-t-2 {
+    border-top-width: 0;
+  }
+
   @layer base {
     @media (min-width: 768px) {
       h1, .h1 { font-size: var(--text-8xl); }
