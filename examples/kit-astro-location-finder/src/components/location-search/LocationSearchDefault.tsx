@@ -3,6 +3,7 @@ import { LocationSearchItem } from './LocationSearchItem';
 import { GoogleMap } from './GoogleMap';
 import { ZipcodeModal } from './ZipcodeModal';
 import { useLocationSearch } from './use-location-search';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 export const LocationSearchDefault = (props: LocationSearchProps) => {
@@ -50,9 +51,10 @@ export const LocationSearchDefault = (props: LocationSearchProps) => {
           })}
         >
           <span className="font-heading text-lg font-light">Locations near</span>
-          <button
+          <Button
+            variant="link"
             onClick={handleOpenModal}
-            className="font-heading flex p-0 text-lg font-bold underline decoration-current underline-offset-2 transition-all duration-200 hover:decoration-transparent bg-transparent border-none cursor-pointer"
+            className="font-heading flex p-0 text-lg font-bold underline decoration-current underline-offset-2 transition-all duration-200 hover:decoration-transparent "
             disabled={geoLoading}
           >
             {!geoLoading ? (
@@ -68,7 +70,7 @@ export const LocationSearchDefault = (props: LocationSearchProps) => {
                 </span>
               </>
             )}
-          </button>
+          </Button>
         </div>
         <div
           className={cn('grid grid-cols-1 gap-[60px] md:grid-cols-2', {

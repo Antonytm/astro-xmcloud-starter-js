@@ -56,13 +56,13 @@ const accordionItems = datasource?.children?.results ?? [];
               isEditing ? (
                 <Link
                   field={link}
-                  class="inline-flex items-center justify-center whitespace-nowrap rounded-default bg-secondary px-8 py-2.5 text-sm font-medium text-secondary-foreground hover:bg-secondary/80"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-default font-heading ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 antialiased font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 px-4 py-2-5 text-sm"
                 />
               ) : (
                 link?.value?.href && link?.value?.text && (
                   <a
                     href={link.value.href}
-                    class="inline-flex items-center justify-center whitespace-nowrap rounded-default bg-secondary px-8 py-2.5 text-sm font-medium text-secondary-foreground hover:bg-secondary/80"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-default font-heading ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 antialiased font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 px-4 py-2-5 text-sm"
                   >
                     {link.value.text}
                   </a>

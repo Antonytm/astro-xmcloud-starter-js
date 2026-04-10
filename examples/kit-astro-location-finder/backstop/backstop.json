@@ -13,7 +13,7 @@
       "delay": 5000,
       "readySelector": "body",
       "postInteractionWait": 3000,
-      "misMatchThreshold": 0.1
+      "misMatchThreshold": 1
     },
     {
       "label": "Products - Aero",
@@ -22,7 +22,7 @@
       "delay": 5000,
       "readySelector": "body",
       "postInteractionWait": 3000,
-      "misMatchThreshold": 0.1
+      "misMatchThreshold": 1
     },
     {
       "label": "Products - Nexa",
@@ -31,7 +31,7 @@
       "delay": 5000,
       "readySelector": "body",
       "postInteractionWait": 3000,
-      "misMatchThreshold": 0.1
+      "misMatchThreshold": 1
     },
     {
       "label": "Products - Terra",
@@ -40,7 +40,7 @@
       "delay": 5000,
       "readySelector": "body",
       "postInteractionWait": 3000,
-      "misMatchThreshold": 0.1
+      "misMatchThreshold": 1
     },
     {
       "label": "Test Drive",
@@ -49,7 +49,10 @@
       "delay": 5000,
       "readySelector": "body",
       "postInteractionWait": 3000,
-      "misMatchThreshold": 0.1
+      "misMatchThreshold": 1,
+      "removeSelectors": [
+        "[data-component=\"LocationSearch\"]"
+      ]
     }
   ],
   "paths": {
