@@ -44,20 +44,20 @@ const globalDictionary = {
               />
             )}
             {/* Navigation links */}
-            <nav>
-              <ul class="-ml-4 flex list-none flex-wrap gap-4 p-0">
+            <nav aria-label="Footer navigation">
+              <ul class="@sm:gap-8 -ml-4 flex list-none flex-wrap gap-4 p-0">
                 {footerNavLinks.map((navLink: any) => {
                   const linkField = navLink?.link?.jsonValue;
                   const href = linkField?.value?.href;
                   const text = linkField?.value?.text;
                   return isEditing ? (
                     <li class="relative">
-                      <Link field={linkField} class="font-heading inline-flex items-center justify-center whitespace-nowrap rounded-default bg-transparent px-4 py-2.5 text-lg font-medium leading-5 antialiased text-secondary-foreground hover:bg-transparent" />
+                      <Link field={linkField} class="inline-flex items-center justify-center whitespace-nowrap rounded-default bg-transparent px-4 py-2.5 text-lg font-medium leading-5 antialiased hover:bg-transparent" />
                     </li>
                   ) : (
                     href && (
                       <li class="relative">
-                        <a href={href} class="font-heading inline-flex items-center justify-center whitespace-nowrap rounded-default bg-transparent px-4 py-2.5 text-lg font-medium leading-5 antialiased text-secondary-foreground hover:bg-transparent">
+                        <a href={href} class="inline-flex items-center justify-center whitespace-nowrap rounded-default bg-transparent px-4 py-2.5 text-lg font-medium leading-5 antialiased hover:bg-transparent">
                           {text}
                         </a>
                       </li>

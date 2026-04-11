@@ -58,3 +58,4 @@ packages/
 /examples/kit-astro-location-finder/backstop
 /examples/kit-astro-product-listing/node_modules
 /examples/kit-astro-product-listing/dist
+/examples/kit-astro-product-listing/backstop/backstop_data
