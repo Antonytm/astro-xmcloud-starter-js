@@ -59,3 +59,4 @@ packages/
 /examples/kit-astro-product-listing/node_modules
 /examples/kit-astro-product-listing/dist
 /examples/kit-astro-product-listing/backstop/backstop_data
+/examples/kit-astro-product-listing/backstop/compare

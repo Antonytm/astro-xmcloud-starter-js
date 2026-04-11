@@ -15,8 +15,8 @@ const headerContact = item?.headerContact?.jsonValue;
 ---
 
 <astro-global-header>
-  <header
-    class="bg-background/80 @container sticky top-0 z-50 flex h-[96px] w-full items-center justify-center border-b backdrop-blur-md"
+  <div
+    class="bg-background/80 @container flex h-[96px] w-full items-center justify-center border-b backdrop-blur-md"
     data-header
   >
     <div class="@xl:px-8 mx-auto flex h-16 w-full max-w-screen-2xl items-center px-4">
@@ -80,7 +80,7 @@ const headerContact = item?.headerContact?.jsonValue;
         </button>
       </div>
     </div>
-  </header>
+  </div>
 
   {/* Mobile Menu Dialog */}
   <dialog data-mobile-menu class="fixed inset-0 z-[100] m-0 h-full w-full max-w-full bg-white p-0 backdrop:bg-black/50">

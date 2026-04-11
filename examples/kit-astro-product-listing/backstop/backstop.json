@@ -14,7 +14,7 @@
       "readySelector": "body",
       "postInteractionWait": 3000,
       "misMatchThreshold": 5,
-      "removeSelectors": ["header"]
+      "removeSelectors": []
     },
     {
       "label": "Speakers",
@@ -24,7 +24,7 @@
       "readySelector": "body",
       "postInteractionWait": 3000,
       "misMatchThreshold": 5,
-      "removeSelectors": ["header"]
+      "removeSelectors": []
     },
     {
       "label": "Speakers - Heritage 10",
@@ -34,7 +34,7 @@
       "readySelector": "body",
       "postInteractionWait": 3000,
       "misMatchThreshold": 5,
-      "removeSelectors": ["header"]
+      "removeSelectors": []
     }
   ],
   "paths": {
